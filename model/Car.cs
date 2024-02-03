@@ -9,17 +9,11 @@ public class Car : Vehicle
         Console.WriteLine($"Antallseter: {Seats}");
     }
 
-    public string GetPlateNumber(Car car)
+    public override void CreateVehicle()
     {
-        return car.PlateNumber;
-    }
-
-    public static Car ExtraInfo(Car car)
-    {
+        base.CreateVehicle();
         Console.WriteLine("Antall seter:  ");
         int seats = VehicleService.IsInt();
-        car.Seats = seats;
-
-        return car;
+        Seats = seats;
     }
 }

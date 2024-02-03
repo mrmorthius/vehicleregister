@@ -1,11 +1,5 @@
 ﻿
 var vehicleService = new VehicleService();
-Car testCar = new Car();
-testCar.SetVehicleInfo();
-testCar = Car.ExtraInfo(testCar);
-testCar.DisplayInfo();
-
-
 
 while (true)
 {
@@ -21,20 +15,27 @@ while (true)
     switch (choice)
     {
         case "1":
-            Car car = Car.ExtraInfo(Vehicle.CreateChild<Car>());
+            // Car car = Car.ExtraInfo(Vehicle.CreateChild<Car>());
+            Car car = new();
+            car.CreateVehicle();
             vehicleService.AddVehicle(car);
             break;
 
         case "2":
-            Truck truck = Truck.ExtraInfo(Vehicle.CreateChild<Truck>());
+            // Truck truck = Truck.ExtraInfo(Vehicle.CreateChild<Truck>());
+            Truck truck = new();
+            truck.CreateVehicle();
             vehicleService.AddVehicle(truck);
             break;
         case "3":
-            Motorcycle motorcycle = Motorcycle.ExtraInfo(Vehicle.CreateChild<Motorcycle>());
-            vehicleService.AddVehicle(motorcycle);
+            // Motorcycle motorcycle = Motorcycle.ExtraInfo(Vehicle.CreateChild<Motorcycle>());
+            Motorcycle mc = new();
+            vehicleService.AddVehicle(mc);
             break;
         case "4":
-            Boat boat = Boat.ExtraInfo(Vehicle.CreateChild<Boat>());
+            Boat boat = new();
+            boat.CreateVehicle();
+            // Boat boat = Boat.ExtraInfo(Vehicle.CreateChild<Boat>());
             vehicleService.AddVehicle(boat);
             break;
         case "5":

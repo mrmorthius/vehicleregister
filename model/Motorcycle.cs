@@ -9,13 +9,12 @@ public class Motorcycle : Vehicle
         base.DisplayInfo();
         Console.WriteLine($"Sidevogn: {(HasSidecar ? "JA" : "Nei")}");
     }
-    public static Motorcycle ExtraInfo(Motorcycle motorcycle)
+    public override void CreateVehicle()
     {
+        base.CreateVehicle();
         Console.WriteLine("Antall seter:  ");
         Console.WriteLine("Sidevogn? (Ja/Nei): ");
         bool sideCar = Console.ReadLine().ToLower() == "ja";
-        motorcycle.HasSidecar = sideCar;
-
-        return motorcycle;
+        HasSidecar = sideCar;
     }
 }

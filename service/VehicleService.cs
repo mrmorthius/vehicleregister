@@ -9,9 +9,16 @@ public class VehicleService
 
     public void ShowVehicles()
     {
-        foreach (Vehicle vehicle in vehicles)
+        if (vehicles.Count != 0)
         {
-            vehicle.DisplayInfo();
+            foreach (Vehicle vehicle in vehicles)
+            {
+                vehicle.DisplayInfo();
+            }
+        }
+        else
+        {
+            Console.WriteLine("Det er ikke lagt til noen kjøretøy i listen.");
         }
     }
 

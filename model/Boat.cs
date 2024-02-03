@@ -5,8 +5,9 @@ public class Boat : Vehicle
     public int Width { get; set; }
     public int HorsePower { get; set; }
 
-    public static Boat ExtraInfo(Boat boat)
+    public override void CreateVehicle()
     {
+        base.CreateVehicle();
         Console.WriteLine("Lengde:  ");
         int length = VehicleService.IsInt();
 
@@ -16,11 +17,9 @@ public class Boat : Vehicle
         Console.WriteLine("Hestekrefter:  ");
         int horsePower = VehicleService.IsInt();
 
-        boat.Length = length;
-        boat.Width = width;
-        boat.HorsePower = horsePower;
-
-        return boat;
+        Length = length;
+        Width = width;
+        HorsePower = horsePower;
     }
 
     public override void DisplayInfo()

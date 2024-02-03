@@ -8,12 +8,11 @@ public class Truck : Vehicle
         base.DisplayInfo();
         Console.WriteLine($"Lastekapasitet: {LoadCapacity}");
     }
-    public static Truck ExtraInfo(Truck truck)
+    public override void CreateVehicle()
     {
+        base.CreateVehicle();
         Console.WriteLine("Lastekapasitet: ");
         int loadCapacity = VehicleService.IsInt();
-        truck.LoadCapacity = loadCapacity;
-
-        return truck;
+        LoadCapacity = loadCapacity;
     }
 }
