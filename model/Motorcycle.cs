@@ -12,7 +12,6 @@ public class Motorcycle : Vehicle
     public override void CreateVehicle()
     {
         base.CreateVehicle();
-        Console.WriteLine("Antall seter:  ");
         Console.WriteLine("Sidevogn? (Ja/Nei): ");
         bool sideCar = Console.ReadLine().ToLower() == "ja";
         HasSidecar = sideCar;

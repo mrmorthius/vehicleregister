@@ -27,3 +27,4 @@
 /Users/morten/Documents/GOKSTAD/C#/VehicleReg/obj/Debug/net7.0/VehicleRegister.pdb
 /Users/morten/Documents/GOKSTAD/C#/VehicleReg/obj/Debug/net7.0/VehicleRegister.genruntimeconfig.cache
 /Users/morten/Documents/GOKSTAD/C#/VehicleReg/obj/Debug/net7.0/ref/VehicleRegister.dll
+/Users/morten/Documents/GOKSTAD/C#/VehicleReg/obj/Debug/net7.0/VehicleRegister.sourcelink.json

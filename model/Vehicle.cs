@@ -14,25 +14,39 @@ public abstract class Vehicle
 
     public virtual void CreateVehicle()
     {
+        //Legge til skiltnummer
         Console.WriteLine("Skiltnummer: ");
         string input = Console.ReadLine();
         while (input.Length <= 2 || input.Length > 8)
-        { input = Console.ReadLine(); }
+        {
+            Console.Write("Lengden må være mellom 3-8 teng. Prøv igjen: ");
+            input = Console.ReadLine();
+        }
         string plateNumber = input;
 
+        //Legge til merke 
         Console.WriteLine("Merke: ");
-        string brand = Console.ReadLine();
+        input = Console.ReadLine();
+        while (input.Length == 0)
+        {
+            Console.Write("Lengden kan ikke være tom. Prøv igjen: ");
+            input = Console.ReadLine();
+        }
+        string brand = input;
+
+        //Legge til modell
         Console.WriteLine("Modell: ");
-        string model = Console.ReadLine();
+        input = Console.ReadLine();
+        while (input.Length == 0)
+        {
+            Console.Write("Lengden kan ikke være tom. Prøv igjen: ");
+            input = Console.ReadLine();
+        }
+        string model = input;
+
+        // Legge til årsmodell
         Console.WriteLine("Årsmodell: ");
         int yearModel = VehicleService.IsInt();
-        yearModel = VehicleService.IsInt();
-
-        PlateNumber = plateNumber;
-        Brand = brand;
-        Model = model;
-        YearModel = yearModel;
-
         DateTime dt = DateTime.Now;
         int year = dt.Year;
         while (yearModel > year || yearModel < 1850)
@@ -50,6 +64,11 @@ public abstract class Vehicle
                 yearModel = VehicleService.IsInt();
             }
         }
+
+        PlateNumber = plateNumber;
+        Brand = brand;
+        Model = model;
+        YearModel = yearModel;
     }
 
     // Generisk metode som lager children med properties

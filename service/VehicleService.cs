@@ -31,4 +31,14 @@ public class VehicleService
         }
         return integer;
     }
+
+    public static double isDouble()
+    {
+        double number;
+        while (!double.TryParse(Console.ReadLine(), out number))
+        {
+            Console.Write($"\nAngitt verdi er ikke et tall. Prøv igjen: ");
+        }
+        return number;
+    }
 }

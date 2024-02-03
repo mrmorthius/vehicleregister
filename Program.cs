@@ -30,6 +30,7 @@ while (true)
         case "3":
             // Motorcycle motorcycle = Motorcycle.ExtraInfo(Vehicle.CreateChild<Motorcycle>());
             Motorcycle mc = new();
+            mc.CreateVehicle();
             vehicleService.AddVehicle(mc);
             break;
         case "4":
@@ -39,7 +40,9 @@ while (true)
             vehicleService.AddVehicle(boat);
             break;
         case "5":
+
             vehicleService.ShowVehicles();
+            Console.WriteLine("------------------------------------------------------------\n");
             break;
         case "6":
             return;
