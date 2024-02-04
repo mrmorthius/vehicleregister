@@ -25,9 +25,17 @@ public class VehicleService
     public static int IsInt()
     {
         int integer;
-        while (!int.TryParse(Console.ReadLine(), out integer))
+        string input = Console.ReadLine();
+        while (!int.TryParse(input, out integer))
         {
             Console.Write($"\nAngitt verdi er ikke et heltall. Prøv igjen: ");
+
+            if (input.ToLower() == "exit")
+                throw new Exception("Kjøretøy ble ikke lagt til");
+            else
+            {
+                input = Console.ReadLine();
+            }
         }
         return integer;
     }
@@ -35,9 +43,17 @@ public class VehicleService
     public static double isDouble()
     {
         double number;
-        while (!double.TryParse(Console.ReadLine(), out number))
+        string input = Console.ReadLine();
+        while (!double.TryParse(input, out number))
         {
             Console.Write($"\nAngitt verdi er ikke et tall. Prøv igjen: ");
+
+            if (input.ToLower() == "exit")
+                throw new Exception("Kjøretøy ble ikke lagt til");
+            else
+            {
+                input = Console.ReadLine();
+            }
         }
         return number;
     }

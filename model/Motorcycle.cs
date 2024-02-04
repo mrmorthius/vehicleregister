@@ -13,7 +13,10 @@ public class Motorcycle : Vehicle
     {
         base.CreateVehicle();
         Console.WriteLine("Sidevogn? (Ja/Nei): ");
-        bool sideCar = Console.ReadLine().ToLower() == "ja";
+        string input = Console.ReadLine();
+        if (input.ToLower() == "exit")
+            throw new Exception("Kjøretøy ble ikke lagt til");
+        bool sideCar = input.ToLower() == "ja";
         HasSidecar = sideCar;
     }
 }

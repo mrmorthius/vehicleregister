@@ -14,9 +14,12 @@ public abstract class Vehicle
 
     public virtual void CreateVehicle()
     {
+        Console.WriteLine("For å avbryte prosessen. Skriv \"exit\"");
         //Legge til skiltnummer
         Console.WriteLine("Skiltnummer: ");
         string input = Console.ReadLine();
+        if (input.ToLower() == "exit")
+            throw new Exception("Kjøretøy ble ikke lagt til");
         while (input.Length <= 2 || input.Length > 8)
         {
             Console.Write("Lengden må være mellom 3-8 teng. Prøv igjen: ");
@@ -27,6 +30,8 @@ public abstract class Vehicle
         //Legge til merke 
         Console.WriteLine("Merke: ");
         input = Console.ReadLine();
+        if (input.ToLower() == "exit")
+            throw new Exception("Kjøretøy ble ikke lagt til");
         while (input.Length == 0)
         {
             Console.Write("Lengden kan ikke være tom. Prøv igjen: ");
@@ -37,6 +42,8 @@ public abstract class Vehicle
         //Legge til modell
         Console.WriteLine("Modell: ");
         input = Console.ReadLine();
+        if (input.ToLower() == "exit")
+            throw new Exception("Kjøretøy ble ikke lagt til");
         while (input.Length == 0)
         {
             Console.Write("Lengden kan ikke være tom. Prøv igjen: ");
@@ -46,6 +53,8 @@ public abstract class Vehicle
 
         // Legge til årsmodell
         Console.WriteLine("Årsmodell: ");
+        if (input.ToLower() == "exit")
+            throw new Exception("Kjøretøy ble ikke lagt til");
         int yearModel = VehicleService.IsInt();
         DateTime dt = DateTime.Now;
         int year = dt.Year;
@@ -70,42 +79,4 @@ public abstract class Vehicle
         Model = model;
         YearModel = yearModel;
     }
-
-    // Generisk metode som lager children med properties
-    // public static Child CreateChild<Child>() where Child : Vehicle, new()
-    // {
-    //     Console.WriteLine("Skiltnummer: ");
-    //     string plateNumber = Console.ReadLine();
-    //     Console.WriteLine("Merke: ");
-    //     string brand = Console.ReadLine();
-    //     Console.WriteLine("Modell: ");
-    //     string model = Console.ReadLine();
-    //     Console.WriteLine("Årsmodell: ");
-    //     int yearModel = VehicleService.IsInt();
-
-    // //     DateTime dt = DateTime.Now;
-    //     int year = dt.Year;
-    //     while (yearModel > year || yearModel < 1850)
-    //     {
-    //         if (yearModel > year)
-    //         {
-    //             Console.WriteLine($"{yearModel} er frem i tid. Prøv igjen: ");
-    //             // input = Console.ReadLine();
-    //             yearModel = VehicleService.IsInt();
-    //         }
-    //         else if (yearModel < 1850)
-    //         {
-    //             Console.WriteLine($"{yearModel} er før 1850. Prøv igjen: ");
-    //             // input = Console.ReadLine();
-    //             yearModel = VehicleService.IsInt();
-    //         }
-    //     }
-
-    //         return new Child
-    //         {
-    //             PlateNumber = plateNumber,
-    //             Brand = brand,
-    //             Model = model,
-    //             YearModel = yearModel
-    // };
 }

@@ -1,4 +1,6 @@
 ﻿
+using System.Linq.Expressions;
+
 var vehicleService = new VehicleService();
 
 while (true)
@@ -12,42 +14,46 @@ while (true)
 
     string choice = Console.ReadLine();
 
-    switch (choice)
+    try //lar oss avbryte prosessen med å legge til kjøretøy uten å avslutte programmet
     {
-        case "1":
-            // Car car = Car.ExtraInfo(Vehicle.CreateChild<Car>());
-            Car car = new();
-            car.CreateVehicle();
-            vehicleService.AddVehicle(car);
-            break;
+        switch (choice)
+        {
 
-        case "2":
-            // Truck truck = Truck.ExtraInfo(Vehicle.CreateChild<Truck>());
-            Truck truck = new();
-            truck.CreateVehicle();
-            vehicleService.AddVehicle(truck);
-            break;
-        case "3":
-            // Motorcycle motorcycle = Motorcycle.ExtraInfo(Vehicle.CreateChild<Motorcycle>());
-            Motorcycle mc = new();
-            mc.CreateVehicle();
-            vehicleService.AddVehicle(mc);
-            break;
-        case "4":
-            Boat boat = new();
-            boat.CreateVehicle();
-            // Boat boat = Boat.ExtraInfo(Vehicle.CreateChild<Boat>());
-            vehicleService.AddVehicle(boat);
-            break;
-        case "5":
+            case "1":
+                Car car = new();
+                car.CreateVehicle();
+                vehicleService.AddVehicle(car);
+                break;
+            case "2":
+                Truck truck = new();
+                truck.CreateVehicle();
+                vehicleService.AddVehicle(truck);
+                break;
+            case "3":
+                Motorcycle mc = new();
+                mc.CreateVehicle();
+                vehicleService.AddVehicle(mc);
+                break;
+            case "4":
+                Boat boat = new();
+                boat.CreateVehicle();
+                vehicleService.AddVehicle(boat);
+                break;
+            case "5":
 
-            vehicleService.ShowVehicles();
-            Console.WriteLine("------------------------------------------------------------\n");
-            break;
-        case "6":
-            return;
-        default:
-            Console.WriteLine("Ugyldig valg, prøv igjen!");
-            break;
+                vehicleService.ShowVehicles();
+                Console.WriteLine("------------------------------------------------------------\n");
+                break;
+            case "6":
+                return;
+            default:
+                Console.WriteLine("Ugyldig valg, prøv igjen!");
+                break;
+        }
+    }
+
+    catch (Exception ex)
+    {
+        Console.WriteLine("Kjøretøy ikke lagt til");
     }
 }
